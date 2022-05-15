@@ -16,9 +16,11 @@ spec:
       labels:
         app: "k8s-node"
     spec:
+      imagePullSecrets:
+        - name: gcr-json-key
       containers:
         - name: "k8s-hello-node"
-          image: "byjg/k8s-hello-node"
+          image: "gcr.io/precise-cabinet-350114/nodejs:latest"
           resources:
             requests:
               memory: "64Mi"
@@ -26,24 +28,3 @@ spec:
             limits:
               memory: "128Mi"
               cpu: "500m"
-
----
-apiVersion: "autoscaling/v2beta1"
-kind: "HorizontalPodAutoscaler"
-metadata:
-  name: "k8s-node-hpa"
-  namespace: "default"
-  labels:
-    app: "k8s-node"
-spec:
-  scaleTargetRef:
-    kind: "Deployment"
-    name: "k8s-node"
-    apiVersion: "apps/v1beta1"
-  minReplicas: 1
-  maxReplicas: 5
-  metrics:
-    - type: "Resource"
-      resource:
-        name: "cpu"
-        targetAverageUtilization: 80
