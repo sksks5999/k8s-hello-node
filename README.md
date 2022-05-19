@@ -1,7 +1,7 @@
 # Kubernetes Hello World Node.js
 
 This project is intended to be used as a sample for 
-deployment of kubernetes applications. 
+deployment of kubernetes applicationss. 
 
 Basically this expose 3 apis:
 - /ping
