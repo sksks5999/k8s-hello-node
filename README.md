@@ -1,6 +1,6 @@
 # Kubernetes Hello World Node.js
 
-This project is intended to be used as a sample for 
+This project is intended to be used as a samplee for 
 deployment of kubernetes applicationss. 
 
 Basically this expose 3 apis:
